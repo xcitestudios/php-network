@@ -68,8 +68,10 @@ class EmailBodyPartCollection extends ArrayCollection
         $collection = new static();
 
         foreach ($objects as $v) {
-            $part = new EmailBodyPart();
-            $part->updateFromObject($v);
+            if (!($v instanceof EmailBodyPart) && ($v instanceof stdClass)) {
+                $part = new EmailBodyPart();
+                $part->updateFromObject($v);
+            }
 
             $collection->add($v);
         }

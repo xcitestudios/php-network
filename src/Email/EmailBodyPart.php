@@ -29,16 +29,43 @@ class EmailBodyPart implements Interfaces\EmailBodyPartSerializableInterface,
     protected $bodyParts;
 
     /**
+     * @param string|null        $contentTransferEncoding
+     * @param string|null        $contentType
+     * @param string|null        $rawContent
+     * @param EmailBodyPart|null $bodyParts
+     */
+    public function __construct($contentTransferEncoding = null, $contentType = null, $rawContent = null, array $bodyParts = null)
+    {
+        if ($contentTransferEncoding !== null) {
+            $this->setContentTransferEncoding($contentTransferEncoding);
+        }
+
+        if ($contentType !== null) {
+            $this->setContentType($contentType);
+        }
+
+        if ($rawContent !== null) {
+            $this->setRawContent($rawContent);
+        }
+
+        if ($bodyParts !== null) {
+            $this->setBodyParts($bodyParts);
+        }
+    }
+
+    /**
      * Set the encoding of this body part. For a singular email this should go into the headers
      * of the original email.
      *
      * @param string $encoding
      *
-     * @return void
+     * @return static
      */
     public function setContentTransferEncoding($encoding)
     {
         $this->contentTransferEncoding = $encoding;
+
+        return $this;
     }
 
     /**
@@ -58,11 +85,13 @@ class EmailBodyPart implements Interfaces\EmailBodyPartSerializableInterface,
      *
      * @param string $contentType
      *
-     * @return void
+     * @return static
      */
     public function setContentType($contentType)
     {
         $this->contentType = $contentType;
+
+        return $this;
     }
 
     /**
@@ -81,11 +110,13 @@ class EmailBodyPart implements Interfaces\EmailBodyPartSerializableInterface,
      *
      * @param string|null $content
      *
-     * @return void
+     * @return static
      */
     public function setRawContent($content)
     {
         $this->rawContent = $content;
+
+        return $this;
     }
 
     /**
@@ -105,7 +136,7 @@ class EmailBodyPart implements Interfaces\EmailBodyPartSerializableInterface,
      * @param EmailBodyPart[]|null $bodyParts
      *
      * @throws InvalidArgumentException
-     * @return void
+     * @return static
      */
     public function setBodyParts(array $bodyParts = null)
     {
@@ -116,6 +147,8 @@ class EmailBodyPart implements Interfaces\EmailBodyPartSerializableInterface,
         }
 
         $this->bodyParts = $collection;
+
+        return $this;
     }
 
     /**

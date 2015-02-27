@@ -70,11 +70,13 @@ class EmailSerializable implements Interfaces\EmailSerializableInterface,
      *
      * @param {Object.<string, string>}|null $headers
      *
-     * @return void
+     * @return static
      */
     public function setCustomHeaders(stdClass $headers = null)
     {
         $this->customHeaders = $headers;
+
+        return $this;
     }
 
     /**
@@ -92,11 +94,13 @@ class EmailSerializable implements Interfaces\EmailSerializableInterface,
      *
      * @param Contact[] $from
      *
-     * @return void
+     * @return static
      */
     public function setFrom(array $from)
     {
         $this->from = ContactCollection::createFromObjects($from);
+
+        return $this;
     }
 
     /**
@@ -116,7 +120,7 @@ class EmailSerializable implements Interfaces\EmailSerializableInterface,
      * @param Contact|null $sender
      *
      * @throws InvalidArgumentException
-     * @return void
+     * @return static
      */
     public function setSender(ContactInterface $sender = null)
     {
@@ -129,6 +133,8 @@ class EmailSerializable implements Interfaces\EmailSerializableInterface,
             );
         }
         $this->sender = $sender;
+
+        return $this;
     }
 
     /**
@@ -147,11 +153,13 @@ class EmailSerializable implements Interfaces\EmailSerializableInterface,
      *
      * @param Contact[]|null $replyTo
      *
-     * @return void
+     * @return static
      */
     public function setReplyTo(array $replyTo = null)
     {
         $this->replyTo = ContactCollection::createFromObjects($replyTo);
+
+        return $this;
     }
 
     /**
@@ -169,11 +177,13 @@ class EmailSerializable implements Interfaces\EmailSerializableInterface,
      *
      * @param Contact[]|null $to
      *
-     * @return void
+     * @return static
      */
     public function setTo(array $to)
     {
         $this->to = ContactCollection::createFromObjects($to);
+
+        return $this;
     }
 
     /**
@@ -191,11 +201,13 @@ class EmailSerializable implements Interfaces\EmailSerializableInterface,
      *
      * @param Contact[]|null $cc
      *
-     * @return void
+     * @return static
      */
     public function setCc(array $cc = null)
     {
         $this->cc = ContactCollection::createFromObjects($cc);
+
+        return $this;
     }
 
     /**
@@ -213,11 +225,13 @@ class EmailSerializable implements Interfaces\EmailSerializableInterface,
      *
      * @param Contact[]|null $bcc
      *
-     * @return void
+     * @return static
      */
     public function setBcc(array $bcc = null)
     {
         $this->bcc = ContactCollection::createFromObjects($bcc);
+
+        return $this;
     }
 
     /**
@@ -236,11 +250,13 @@ class EmailSerializable implements Interfaces\EmailSerializableInterface,
      *
      * @param DateTime|null $date
      *
-     * @return void
+     * @return static
      */
     public function setDate(DateTime $date = null)
     {
         $this->date = $date;
+
+        return $this;
     }
 
     /**
@@ -259,11 +275,13 @@ class EmailSerializable implements Interfaces\EmailSerializableInterface,
      *
      * @param string|null $subject
      *
-     * @return void
+     * @return static
      */
     public function setSubject($subject = null)
     {
         $this->subject = $subject;
+
+        return $this;
     }
 
     /**
@@ -281,11 +299,13 @@ class EmailSerializable implements Interfaces\EmailSerializableInterface,
      *
      * @param string|null $inReplyTo
      *
-     * @return void
+     * @return static
      */
     public function setInReplyTo($inReplyTo = null)
     {
         $this->inReplyTo = $inReplyTo;
+
+        return $this;
     }
 
     /**
@@ -308,7 +328,7 @@ class EmailSerializable implements Interfaces\EmailSerializableInterface,
      * @param EmailBodyPart[] $bodyParts
      *
      * @throws InvalidArgumentException
-     * @return void
+     * @return static
      */
     public function setBodyParts(array $bodyParts)
     {
@@ -319,6 +339,8 @@ class EmailSerializable implements Interfaces\EmailSerializableInterface,
         }
 
         $this->bodyParts = $collection;
+
+        return $this;
     }
 
     /**

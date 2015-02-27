@@ -68,8 +68,10 @@ class ContactCollection extends ArrayCollection
         $collection = new static();
 
         foreach ($objects as $v) {
-            $part = new Contact();
-            $part->updateFromObject($v);
+            if (!($v instanceof Contact) && ($v instanceof stdClass)) {
+                $part = new Contact();
+                $part->updateFromObject($v);
+            }
 
             $collection->add($v);
         }

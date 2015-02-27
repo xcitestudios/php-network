@@ -18,9 +18,24 @@ class Contact implements Interfaces\ContactSerializableInterface,
     protected $email;
 
     /**
+     * @param string|null $name
+     * @param string|null $email
+     */
+    public function __construct($name = null, $email = null)
+    {
+        if ($name !== null) {
+            $this->setName($name);
+        }
+
+        if ($email !== null) {
+            $this->setEmail($email);
+        }
+    }
+
+    /**
      * Sets the name of this contact.
      *
-     * @param string $name
+     * @param string|null $name
      *
      * @return void
      */
