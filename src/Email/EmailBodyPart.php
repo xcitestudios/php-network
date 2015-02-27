@@ -1,8 +1,6 @@
 <?php
 namespace com\xcitestudios\Network\Email;
 
-use com\xcitestudios\Network\Email\Interfaces\EmailBodyPartInterface;
-use com\xcitestudios\Network\Email\Interfaces\EmailBodyPartSerializableInterface;
 use JsonSerializable;
 use stdClass;
 use InvalidArgumentException;
@@ -26,7 +24,7 @@ class EmailBodyPart implements Interfaces\EmailBodyPartSerializableInterface,
     protected $rawContent;
 
     /**
-     * @var EmailBodyPartInterface[]|null
+     * @var EmailBodyPartCollection|null
      */
     protected $bodyParts;
 
@@ -35,6 +33,7 @@ class EmailBodyPart implements Interfaces\EmailBodyPartSerializableInterface,
      * of the original email.
      *
      * @param string $encoding
+     *
      * @return void
      */
     public function setContentTransferEncoding($encoding)
@@ -58,6 +57,7 @@ class EmailBodyPart implements Interfaces\EmailBodyPartSerializableInterface,
      * a multipart type such as multipart/alternative or multipart/mixed.
      *
      * @param string $contentType
+     *
      * @return void
      */
     public function setContentType($contentType)
@@ -80,6 +80,7 @@ class EmailBodyPart implements Interfaces\EmailBodyPartSerializableInterface,
      * Get the raw content of this body part if it doesn't contain sub parts.
      *
      * @param string|null $content
+     *
      * @return void
      */
     public function setRawContent($content)
@@ -101,36 +102,47 @@ class EmailBodyPart implements Interfaces\EmailBodyPartSerializableInterface,
      * Set the body of the body part. If you're using a singular ContentType this should be an array
      * of length one with the body set.
      *
-     * @param EmailBodyPartInterface[]|null $bodyParts
+     * @param EmailBodyPart[]|null $bodyParts
+     *
      * @throws InvalidArgumentException
      * @return void
      */
     public function setBodyParts(array $bodyParts = null)
     {
+        $collection = new EmailBodyPartCollection();
+
         foreach ($bodyParts as $k => $v) {
-            if (!($v instanceof EmailBodyPartSerializableInterface)) {
-                throw new InvalidArgumentException(
-                    sprintf(
-                        'setBodyParts() element index %d is not of type %s',
-                        $k, EmailBodyPartSerializableInterface::class
-                    )
-                );
-            }
+            $collection->add($v);
         }
-        $this->bodyParts = $bodyParts;
+
+        $this->bodyParts = $collection;
     }
 
     /**
      * Get the body of the body part. If you're using a singular ContentType this should be an array
      * of length one with the body set.
      *
-     * @return EmailBodyPartInterface[]|null
+     * @return EmailBodyPart[]|null
      */
     public function getBodyParts()
     {
-        return $this->bodyParts;
+        return $this->bodyParts !== null ? $this->bodyParts->toArray() : null;
     }
 
+    /**
+     * Updates this object from a stdClass instance.
+     *
+     * @param stdClass $object
+     *
+     * @return void
+     */
+    public function updateFromObject(stdClass $object)
+    {
+        $this->bodyParts               = EmailBodyPartCollection::createFromObjects(property_exists($object, 'bodyParts') ? $object->bodyParts : null);
+        $this->contentTransferEncoding = $object->contentTransferEncoding;
+        $this->contentType             = $object->contentType;
+        $this->rawContent              = property_exists($object, 'rawContent') ? $object->rawContent : null;
+    }
 
     /**
      * Updates the element implementing this interface using a JSON representation.
@@ -138,16 +150,14 @@ class EmailBodyPart implements Interfaces\EmailBodyPartSerializableInterface,
      * as opposed to returning a new instance of this object.
      *
      * @param string $jsonString Representation of the object
+     *
      * @return void
      */
     public function deserializeJSON($jsonString)
     {
         $data = \json_decode($jsonString);
 
-        $this->setContentTransferEncoding($data->contentTransferEncoding);
-        $this->setContentType($data->contentType);
-        $this->setBodyParts(property_exists($data, 'bodyParts') ? $data->bodyParts : null);
-        $this->setRawContent(property_exists($data, 'rawContent') ? $data->rawContent : null);
+        $this->updateFromObject($data);
     }
 
     /**
@@ -163,18 +173,19 @@ class EmailBodyPart implements Interfaces\EmailBodyPartSerializableInterface,
     /**
      * (PHP 5 &gt;= 5.4.0)<br/>
      * Specify data which should be serialized to JSON
+     *
      * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
      * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
+     *       which is a value of any type other than a resource.
      */
     public function jsonSerialize()
     {
         $ret = new stdClass;
 
-        $ret->contentTransferEncoding = $this->getContentTransferEncoding();
-        $ret->contentType             = $this->getContentType();
-        $ret->bodyParts               = $this->getBodyParts();
-        $ret->rawContent              = $this->getRawContent();
+        $ret->contentTransferEncoding = $this->contentTransferEncoding;
+        $ret->contentType             = $this->contentType;
+        $ret->bodyParts               = $this->bodyParts !== null ? $this->bodyParts->jsonSerialize() : null;
+        $ret->rawContent              = $this->rawContent;
 
         return $ret;
     }

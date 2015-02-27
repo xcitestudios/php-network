@@ -6,7 +6,7 @@ use com\xcitestudios\Generic\Data\Manipulation\Interfaces\SerializationInterface
 /**
  * Interface for an email that is serializable.
  */
-interface ContactSerializableInterface
-    extends ContactInterface, SerializationInterface
+interface EmailSerializableInterface
+    extends EmailInterface, SerializationInterface
 {
 }

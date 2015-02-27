@@ -13,7 +13,7 @@ interface EmailInterface
      * Set any non standard headers here - these should never overwrite the explicit headers.
      *
      * @param {Object.<string, string>}|null $headers
-     * @return mixed
+     * @return void
      */
     public function setCustomHeaders(stdClass $headers = null);
 
@@ -129,7 +129,7 @@ interface EmailInterface
      * Get the time the email was "sent" (finished by a person/system). This is not
      * necessarily the time the email entered a mail server.
      *
-     * @return mixed
+     * @return DateTime|null
      */
     public function getDate();
 
