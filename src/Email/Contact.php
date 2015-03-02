@@ -14,6 +14,9 @@ use stdClass;
 
 /**
  * A class implementing the Interfaces\ContactSerializableInterface interface.
+ *
+ * @package com.xcitestudios.Network
+ * @subpackage Email
  */
 class Contact implements Interfaces\ContactSerializableInterface,
     JsonSerializable

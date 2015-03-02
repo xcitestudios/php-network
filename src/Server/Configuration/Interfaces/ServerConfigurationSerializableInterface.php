@@ -13,6 +13,9 @@ use com\xcitestudios\Generic\Data\Manipulation\Interfaces\SerializationInterface
 
 /**
  * Simple configuration for connecting to a server with serialization.
+ *
+ * @package com.xcitestudios.Network
+ * @subpackage Server.Configuration.Interfaces
  */
 interface ServerConfigurationSerializableInterface
     extends ServerConfigurationInterface, SerializationInterface

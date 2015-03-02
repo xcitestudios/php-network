@@ -13,6 +13,9 @@ use com\xcitestudios\Generic\Data\Manipulation\Interfaces\SerializationInterface
 
 /**
  * Interface for an email that is serializable.
+ *
+ * @package com.xcitestudios.Network
+ * @subpackage Email.Interfaces
  */
 interface EmailSerializableInterface
     extends EmailInterface, SerializationInterface

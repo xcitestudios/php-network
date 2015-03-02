@@ -16,6 +16,9 @@ use JsonSerializable;
 use stdClass;
 /**
  * A Collection of EmailBodyPart objects used for internal storage.
+ *
+ * @package com.xcitestudios.Network
+ * @subpackage Email
  */
 class EmailBodyPartCollection extends ArrayCollection
     implements SerializationInterface, JsonSerializable

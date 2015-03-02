@@ -17,6 +17,9 @@ use InvalidArgumentException;
 
 /**
  * A class implementing the Interfaces\EmailSerializableInterface interface.
+ *
+ * @package com.xcitestudios.Network
+ * @subpackage Email
  */
 class EmailSerializable implements Interfaces\EmailSerializableInterface,
     JsonSerializable

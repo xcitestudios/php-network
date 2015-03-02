@@ -11,6 +11,9 @@ namespace com\xcitestudios\Network\Server\Configuration\Interfaces;
 
 /**
  * Simple configuration for connecting to a server.
+ *
+ * @package com.xcitestudios.Network
+ * @subpackage Server.Configuration.Interfaces
  */
 interface ServerConfigurationInterface
 {

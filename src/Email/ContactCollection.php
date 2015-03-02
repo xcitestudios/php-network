@@ -17,6 +17,9 @@ use stdClass;
 
 /**
  * A Collection of Contact objects used for internal storage.
+ *
+ * @package com.xcitestudios.Network
+ * @subpackage Email
  */
 class ContactCollection extends ArrayCollection
     implements SerializationInterface, JsonSerializable

@@ -11,6 +11,9 @@ namespace com\xcitestudios\Network\Email\Interfaces;
 
 /**
  * Interface for part of an email body.
+ *
+ * @package com.xcitestudios.Network
+ * @subpackage Email.Interfaces
  */
 interface EmailBodyPartInterface
 {

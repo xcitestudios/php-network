@@ -11,6 +11,9 @@ namespace com\xcitestudios\Network\Email\Interfaces;
 
 /**
  * Interface for a contact used in emails.
+ *
+ * @package com.xcitestudios.Network
+ * @subpackage Email.Interfaces
  */
 interface ContactInterface
 {

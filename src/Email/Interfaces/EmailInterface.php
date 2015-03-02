@@ -14,6 +14,9 @@ use stdClass;
 
 /**
  * Interface for an email.
+ *
+ * @package com.xcitestudios.Network
+ * @subpackage Email.Interfaces
  */
 interface EmailInterface
 {

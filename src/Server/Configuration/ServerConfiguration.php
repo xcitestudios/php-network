@@ -15,6 +15,9 @@ use stdClass;
 
 /**
  * A class implementing the Interfaces\ServerConfigurationSerializableInterface interface.
+ *
+ * @package com.xcitestudios.Network
+ * @subpackage Server.Configuration
  */
 class ServerConfiguration implements Interfaces\ServerConfigurationSerializableInterface,
     JsonSerializable

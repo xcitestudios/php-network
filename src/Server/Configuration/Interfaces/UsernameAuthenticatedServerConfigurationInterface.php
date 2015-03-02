@@ -11,6 +11,9 @@ namespace com\xcitestudios\Network\Server\Configuration\Interfaces;
 
 /**
  * Extend server configuration to add in authentication.
+ *
+ * @package com.xcitestudios.Network
+ * @subpackage Server.Configuration.Interfaces
  */
 interface UsernameAuthenticatedServerConfigurationInterface
     extends ServerConfigurationInterface

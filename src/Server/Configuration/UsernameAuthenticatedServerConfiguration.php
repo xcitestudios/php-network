@@ -11,6 +11,9 @@ namespace com\xcitestudios\Network\Server\Configuration;
 
 /**
  * A class implementing the Interfaces\UsernameAuthenticatedServerConfigurationSerializableInterface interface.
+ *
+ * @package com.xcitestudios.Network
+ * @subpackage Server.Configuration
  */
 class UsernameAuthenticatedServerConfiguration extends ServerConfiguration
     implements Interfaces\UsernameAuthenticatedServerConfigurationSerializableInterface

@@ -13,6 +13,9 @@ use com\xcitestudios\Generic\Data\Manipulation\Interfaces\SerializationInterface
 
 /**
  * Extend server configuration to add in authentication.
+ *
+ * @package com.xcitestudios.Network
+ * @subpackage Server.Configuration.Interfaces
  */
 interface UsernameAuthenticatedServerConfigurationSerializableInterface
     extends UsernameAuthenticatedServerConfigurationInterface, SerializationInterface
