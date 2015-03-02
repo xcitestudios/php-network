@@ -1,10 +1,21 @@
 <?php
+/**
+ * com.xcitestudios.Network
+ *
+ * @copyright Wade Womersley (xcitestudios)
+ * @license http://www.opensource.org/licenses/mit-license.php MIT
+ * @link https://xcitestudios.com/
+ */
+
 namespace com\xcitestudios\Network\Email;
 
 use JsonSerializable;
 use stdClass;
 use InvalidArgumentException;
 
+/**
+ * A class implementing the Interfaces\EmailBodyPartSerializableInterface interface.
+ */
 class EmailBodyPart implements Interfaces\EmailBodyPartSerializableInterface,
     JsonSerializable
 {
@@ -29,6 +40,8 @@ class EmailBodyPart implements Interfaces\EmailBodyPartSerializableInterface,
     protected $bodyParts;
 
     /**
+     * Quickly create a new email body part.
+     *
      * @param string|null        $contentTransferEncoding
      * @param string|null        $contentType
      * @param string|null        $rawContent

@@ -1,4 +1,12 @@
 <?php
+/**
+ * com.xcitestudios.Network
+ *
+ * @copyright Wade Womersley (xcitestudios)
+ * @license http://www.opensource.org/licenses/mit-license.php MIT
+ * @link https://xcitestudios.com/
+ */
+
 namespace com\xcitestudios\Network\Email;
 
 use com\xcitestudios\Generic\Data\Manipulation\Interfaces\SerializationInterface;
@@ -7,6 +15,9 @@ use InvalidArgumentException;
 use JsonSerializable;
 use stdClass;
 
+/**
+ * A Collection of Contact objects used for internal storage.
+ */
 class ContactCollection extends ArrayCollection
     implements SerializationInterface, JsonSerializable
 {

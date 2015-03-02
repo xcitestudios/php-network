@@ -1,4 +1,12 @@
 <?php
+/**
+ * com.xcitestudios.Network
+ *
+ * @copyright Wade Womersley (xcitestudios)
+ * @license http://www.opensource.org/licenses/mit-license.php MIT
+ * @link https://xcitestudios.com/
+ */
+
 namespace com\xcitestudios\Network\Email;
 
 use com\xcitestudios\Network\Email\Interfaces\ContactInterface;
@@ -7,11 +15,14 @@ use JsonSerializable;
 use stdClass;
 use InvalidArgumentException;
 
+/**
+ * A class implementing the Interfaces\EmailSerializableInterface interface.
+ */
 class EmailSerializable implements Interfaces\EmailSerializableInterface,
     JsonSerializable
 {
     /**
-     * @var {Object.<string, string>}|null
+     * @var stdClass|{Object.<string, string>}|null
      */
     protected $customHeaders;
 
@@ -68,7 +79,7 @@ class EmailSerializable implements Interfaces\EmailSerializableInterface,
     /**
      * Set any non standard headers here - these should never overwrite the explicit headers.
      *
-     * @param {Object.<string, string>}|null $headers
+     * @param object|null $headers
      *
      * @return static
      */
@@ -82,7 +93,7 @@ class EmailSerializable implements Interfaces\EmailSerializableInterface,
     /**
      * Get any non standard headers here - these should never overwrite the explicit headers.
      *
-     * @return {Object.<string, string>}|null
+     * @return object|null
      */
     public function getCustomHeaders()
     {

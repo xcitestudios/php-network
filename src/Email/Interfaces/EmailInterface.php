@@ -1,4 +1,12 @@
 <?php
+/**
+ * com.xcitestudios.Network
+ *
+ * @copyright Wade Womersley (xcitestudios)
+ * @license http://www.opensource.org/licenses/mit-license.php MIT
+ * @link https://xcitestudios.com/
+ */
+
 namespace com\xcitestudios\Network\Email\Interfaces;
 
 use DateTime;
@@ -12,7 +20,7 @@ interface EmailInterface
     /**
      * Set any non standard headers here - these should never overwrite the explicit headers.
      *
-     * @param {Object.<string, string>}|null $headers
+     * @param object|null $headers
      * @return void
      */
     public function setCustomHeaders(stdClass $headers = null);
@@ -20,7 +28,7 @@ interface EmailInterface
     /**
      * Get any non standard headers here - these should never overwrite the explicit headers.
      *
-     * @return stdClass|null
+     * @return object|null
      */
     public function getCustomHeaders();
 

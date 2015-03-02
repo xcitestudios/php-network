@@ -1,10 +1,19 @@
 <?php
+/**
+ * com.xcitestudios.Network
+ *
+ * @copyright Wade Womersley (xcitestudios)
+ * @license http://www.opensource.org/licenses/mit-license.php MIT
+ * @link https://xcitestudios.com/
+ */
+
 namespace com\xcitestudios\Network\Server\Configuration;
 
-use com\xcitestudios\Network\Server\Configuration\Interfaces\UsernameAuthenticatedServerConfigurationSerializableInterface;
-
+/**
+ * A class implementing the Interfaces\UsernameAuthenticatedServerConfigurationSerializableInterface interface.
+ */
 class UsernameAuthenticatedServerConfiguration extends ServerConfiguration
-    implements UsernameAuthenticatedServerConfigurationSerializableInterface
+    implements Interfaces\UsernameAuthenticatedServerConfigurationSerializableInterface
 {
     /**
      * @var string
