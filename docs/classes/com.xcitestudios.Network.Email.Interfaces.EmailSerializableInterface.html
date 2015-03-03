@@ -3,1202 +3,934 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <meta charset="utf-8"/>
-    <title>com.xcitestudios.Network</title>
+    <title>    com.xcitestudios.Network &raquo; \com\xcitestudios\Network\Email\Interfaces\EmailSerializableInterface
+</title>
     <meta name="author" content=""/>
     <meta name="description" content=""/>
 
-    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/prism.css" rel="stylesheet" media="all"/>
-    <link href="../css/template.css" rel="stylesheet" media="all"/>
+            <link href="../css/template.css" rel="stylesheet" media="all"/>
     
-    <!--[if lt IE 9]>
-    <script src="../js/html5.js"></script>
-    <![endif]-->
-    <script src="../js/jquery-1.11.0.min.js"></script>
-    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/jquery.smooth-scroll.js"></script>
-    <script src="../js/prism.min.js"></script>
-    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
-        <script type="text/javascript">
-        function loadExternalCodeSnippets() {
-            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-                var src = pre.getAttribute('data-src');
-                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-                var language = 'php';
-
-                var code = document.createElement('code');
-                code.className = 'language-' + language;
-
-                pre.textContent = '';
-
-                code.textContent = 'Loading…';
-
-                pre.appendChild(code);
-
-                var xhr = new XMLHttpRequest();
-
-                xhr.open('GET', src, true);
-
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4) {
-
-                        if (xhr.status < 400 && xhr.responseText) {
-                            code.textContent = xhr.responseText;
-
-                            Prism.highlightElement(code);
-                        }
-                        else if (xhr.status >= 400) {
-                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
-                        }
-                        else {
-                            code.textContent = '✖ Error: File does not exist or is empty';
-                        }
-                    }
-                };
-
-                xhr.send(null);
-            });
-        }
-
-        $(document).ready(function(){
-            loadExternalCodeSnippets();
-        });
-        $('#source-view').on('shown', function () {
-            loadExternalCodeSnippets();
-        })
-    </script>
-
-    <link rel="shortcut icon" href="../images/favicon.ico"/>
-    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
-    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
-    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
-</head>
+            <!--[if lt IE 9]>
+        <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+        <![endif]-->
+        <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+        <script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+        <script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script>
+        <script src="../js/bootstrap.js" type="text/javascript"></script>
+        <script src="../js/template.js" type="text/javascript"></script>
+        <script src="../js/prettify/prettify.min.js" type="text/javascript"></script>
+    
+            <link rel="shortcut icon" href="../img/favicon.ico"/>
+        <link rel="apple-touch-icon" href="../img/apple-touch-icon.png"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png"/>
+    </head>
 <body>
 
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <i class="icon-ellipsis-vertical"></i>
-            </a>
-            <a class="brand" href="../index.html">com.xcitestudios.Network</a>
+        <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> </a>
+                <a class="brand" href="../index.html">com.xcitestudios.Network</a>
 
-            <div class="nav-collapse">
-                <ul class="nav pull-right">
-                                        <li class="dropdown">
-                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
-                            API Documentation <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                                                        <li><a href="../namespaces/com.html">\com</a></li>
-                                                    </ul>
-                    </li>
-                                        <li class="dropdown" id="charts-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Charts <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../graphs/class.html">
-                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown" id="reports-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Reports <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../reports/errors.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../reports/markers.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../reports/deprecated.html">
-                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!--<div class="go_to_top">-->
-    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
-    <!--</div>-->
-</div>
-
-<div id="___" class="container-fluid">
-        <section class="row-fluid">
-        <div class="span2 sidebar">
-                                <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1722060168"></a>
-                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
-            </div>
-            <div id="namespace-1722060168" class="accordion-body collapse in">
-                <div class="accordion-inner">
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-357784872"></a>
-                                <a href="../namespaces/com.html" style="margin-left: 30px; padding-left: 0">com</a>
-            </div>
-            <div id="namespace-357784872" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-428608317"></a>
-                                <a href="../namespaces/com.xcitestudios.html" style="margin-left: 30px; padding-left: 0">xcitestudios</a>
-            </div>
-            <div id="namespace-428608317" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2006957276"></a>
-                                <a href="../namespaces/com.xcitestudios.Network.html" style="margin-left: 30px; padding-left: 0">Network</a>
-            </div>
-            <div id="namespace-2006957276" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-381647915"></a>
-                                <a href="../namespaces/com.xcitestudios.Network.Email.html" style="margin-left: 30px; padding-left: 0">Email</a>
-            </div>
-            <div id="namespace-381647915" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-351329214"></a>
-                                <a href="../namespaces/com.xcitestudios.Network.Email.Interfaces.html" style="margin-left: 30px; padding-left: 0">Interfaces</a>
-            </div>
-            <div id="namespace-351329214" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                    
-                    <ul>
-                                                    <li class="interface"><a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">ContactInterface</a></li>
-                                                    <li class="interface"><a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactSerializableInterface.html">ContactSerializableInterface</a></li>
-                                                    <li class="interface"><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailBodyPartInterface.html">EmailBodyPartInterface</a></li>
-                                                    <li class="interface"><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailBodyPartSerializableInterface.html">EmailBodyPartSerializableInterface</a></li>
-                                                    <li class="interface"><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html">EmailInterface</a></li>
-                                                    <li class="interface"><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailSerializableInterface.html">EmailSerializableInterface</a></li>
-                                                                                            </ul>
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li class="dropdown">
+                            <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                API Documentation <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                                                    <li><a>Namespaces</a></li>
+                                                                        <li><a href="../namespaces/com.html">com</a></li>
+                                                                                                                                </ul>
+                        </li>
+                        <li class="dropdown" id="charts-menu">
+                            <a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                Charts <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../graph_class.html">
+                                        <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown" id="reports-menu">
+                            <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                Reports <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../errors.html">
+                                        <i class="icon-list-alt"></i>&#160;Errors
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../markers.html">
+                                        <i class="icon-list-alt"></i>&#160;Markers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../deprecated.html">
+                                        <i class="icon-list-alt"></i>&#160;Deprecated
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
-
-                    
-                    <ul>
-                                                                                                    <li class="class"><a href="../classes/com.xcitestudios.Network.Email.Contact.html">Contact</a></li>
-                                                    <li class="class"><a href="../classes/com.xcitestudios.Network.Email.ContactCollection.html">ContactCollection</a></li>
-                                                    <li class="class"><a href="../classes/com.xcitestudios.Network.Email.EmailBodyPart.html">EmailBodyPart</a></li>
-                                                    <li class="class"><a href="../classes/com.xcitestudios.Network.Email.EmailBodyPartCollection.html">EmailBodyPartCollection</a></li>
-                                                    <li class="class"><a href="../classes/com.xcitestudios.Network.Email.EmailSerializable.html">EmailSerializable</a></li>
-                                            </ul>
-                </div>
-            </div>
+        <div class="go_to_top">
+            <a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>
         </div>
     </div>
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1884820253"></a>
-                                <a href="../namespaces/com.xcitestudios.Network.Server.html" style="margin-left: 30px; padding-left: 0">Server</a>
+    
+    <div id="___" class="container">
+        <noscript>
+            <div class="alert alert-warning">
+                Javascript is disabled; several features are only available if Javascript is enabled.
             </div>
-            <div id="namespace-1884820253" class="accordion-body collapse ">
-                <div class="accordion-inner">
+        </noscript>
 
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-977522977"></a>
-                                <a href="../namespaces/com.xcitestudios.Network.Server.Configuration.html" style="margin-left: 30px; padding-left: 0">Configuration</a>
-            </div>
-            <div id="namespace-977522977" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-341974334"></a>
-                                <a href="../namespaces/com.xcitestudios.Network.Server.Configuration.Interfaces.html" style="margin-left: 30px; padding-left: 0">Interfaces</a>
-            </div>
-            <div id="namespace-341974334" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                    
-                    <ul>
-                                                    <li class="interface"><a href="../classes/com.xcitestudios.Network.Server.Configuration.Interfaces.ServerConfigurationInterface.html">ServerConfigurationInterface</a></li>
-                                                    <li class="interface"><a href="../classes/com.xcitestudios.Network.Server.Configuration.Interfaces.ServerConfigurationSerializableInterface.html">ServerConfigurationSerializableInterface</a></li>
-                                                    <li class="interface"><a href="../classes/com.xcitestudios.Network.Server.Configuration.Interfaces.UsernameAuthenticatedServerConfigurationInterface.html">UsernameAuthenticatedServerConfigurationInterface</a></li>
-                                                    <li class="interface"><a href="../classes/com.xcitestudios.Network.Server.Configuration.Interfaces.UsernameAuthenticatedServerConfigurationSerializableInterface.html">UsernameAuthenticatedServerConfigurationSerializableInterface</a></li>
-                                                                                            </ul>
-                </div>
-            </div>
-        </div>
+        
+            <style>
+        .deprecated h2 {
+            text-decoration: line-through;
+        }
+    </style>
+    <div class="row">
+        <div class="span4">
+                    <div class="btn-group view pull-right" data-toggle="buttons-radio">
+        <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button>
+        <button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+    </div>
+    <div class="btn-group visibility" data-toggle="buttons-checkbox">
+        <button class="btn public active" title="Show public elements">Public</button>
+        <button class="btn protected" title="Show protected elements">Protected</button>
+        <button class="btn private" title="Show private elements">Private</button>
+        <button class="btn inherited active" title="Show inherited elements">Inherited</button>
     </div>
 
-                    
-                    <ul>
-                                                                                                    <li class="class"><a href="../classes/com.xcitestudios.Network.Server.Configuration.ServerConfiguration.html">ServerConfiguration</a></li>
-                                                    <li class="class"><a href="../classes/com.xcitestudios.Network.Server.Configuration.UsernameAuthenticatedServerConfiguration.html">UsernameAuthenticatedServerConfiguration</a></li>
-                                            </ul>
-                </div>
-            </div>
+        <ul class="side-nav nav nav-list">
+        <li class="nav-header">
+            <i class="icon-custom icon-method"></i> Methods
+            <ul>
+                                                                                                    <li class="method public inherited">
+        <a href="#method_getBcc" title="getBcc :: Get the BCC recipients of the email.">
+            <span class="description">Get the BCC recipients of the email.</span><pre>getBcc</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_getBodyParts" title="getBodyParts :: Get the body of the email. For a single content-type email, just put one in this array.">
+            <span class="description">Get the body of the email. For a single content-type email, just put one in this array.</span><pre>getBodyParts</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_getCc" title="getCc :: Get the CC recipients of the email.">
+            <span class="description">Get the CC recipients of the email.</span><pre>getCc</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_getCustomHeaders" title="getCustomHeaders :: Get any non standard headers here - these should never overwrite the explicit headers.">
+            <span class="description">Get any non standard headers here - these should never overwrite the explicit headers.</span><pre>getCustomHeaders</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_getDate" title="getDate :: Get the time the email was &quot;sent&quot; (finished by a person/system). This is not
+necessarily the time the email entered a mail server.">
+            <span class="description">Get the time the email was &quot;sent&quot; (finished by a person/system). This is not
+necessarily the time the email entered a mail server.</span><pre>getDate</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_getFrom" title="getFrom :: Get who is the email from. Can be multiple people.">
+            <span class="description">Get who is the email from. Can be multiple people.</span><pre>getFrom</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_getInReplyTo" title="getInReplyTo :: Get which unique MessageID this is in reply to.">
+            <span class="description">Get which unique MessageID this is in reply to.</span><pre>getInReplyTo</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_getReplyTo" title="getReplyTo :: Gets who a reply should go to when hitting reply in an email client.">
+            <span class="description">Gets who a reply should go to when hitting reply in an email client.</span><pre>getReplyTo</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_getSender" title="getSender :: Gets the sender.">
+            <span class="description">Gets the sender.</span><pre>getSender</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_getSubject" title="getSubject :: Get the subject of the email.">
+            <span class="description">Get the subject of the email.</span><pre>getSubject</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_getTo" title="getTo :: Get the recipients of the email.">
+            <span class="description">Get the recipients of the email.</span><pre>getTo</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_setBcc" title="setBcc :: Set the BCC recipients of the email.">
+            <span class="description">Set the BCC recipients of the email.</span><pre>setBcc</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_setBodyParts" title="setBodyParts :: Set the body of the email. For a single content-type email, just put one in this array.">
+            <span class="description">Set the body of the email. For a single content-type email, just put one in this array.</span><pre>setBodyParts</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_setCc" title="setCc :: Set the CC recipients of the email.">
+            <span class="description">Set the CC recipients of the email.</span><pre>setCc</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_setCustomHeaders" title="setCustomHeaders :: Set any non standard headers here - these should never overwrite the explicit headers.">
+            <span class="description">Set any non standard headers here - these should never overwrite the explicit headers.</span><pre>setCustomHeaders</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_setDate" title="setDate :: Set the time the email was &quot;sent&quot; (finished by a person/system). This is not
+necessarily the time the email entered a mail server.">
+            <span class="description">Set the time the email was &quot;sent&quot; (finished by a person/system). This is not
+necessarily the time the email entered a mail server.</span><pre>setDate</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_setFrom" title="setFrom :: Set who is the email from. Can be multiple people.">
+            <span class="description">Set who is the email from. Can be multiple people.</span><pre>setFrom</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_setInReplyTo" title="setInReplyTo :: Set which unique MessageID this is in reply to.">
+            <span class="description">Set which unique MessageID this is in reply to.</span><pre>setInReplyTo</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_setReplyTo" title="setReplyTo :: Sets who a reply should go to when hitting reply in an email client.">
+            <span class="description">Sets who a reply should go to when hitting reply in an email client.</span><pre>setReplyTo</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_setSender" title="setSender :: Sets the sender.">
+            <span class="description">Sets the sender.</span><pre>setSender</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_setSubject" title="setSubject :: Set the subject of the email.">
+            <span class="description">Set the subject of the email.</span><pre>setSubject</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_setTo" title="setTo :: Set the recipients of the email.">
+            <span class="description">Set the recipients of the email.</span><pre>setTo</pre>
+        </a>
+    </li>
+
+                                                </ul>
+        </li>
+        <li class="nav-header protected">» Protected
+            <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </ul>
+        </li>
+        <li class="nav-header private">» Private
+            <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </ul>
+        </li>
+        <li class="nav-header">
+            <i class="icon-custom icon-constant"></i> Constants
+            <ul>
+                            </ul>
+        </li>
+    </ul>
+
+
         </div>
-    </div>
 
-                    
-                    <ul>
-                                                                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                    
-                    <ul>
-                                                                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                    
-                    <ul>
-                                                                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                    
-                    <ul>
-                                                                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                    
-                    <ul>
-                                                                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-        </div>
-    </section>
-    <section class="row-fluid">
-        <div class="span10 offset2">
-            <div class="row-fluid">
-                <div class="span8 content class">
-                    <nav>
-                                                <a href="../namespaces/com.xcitestudios.Network.Email.Interfaces.html">\com\xcitestudios\Network\Email\Interfaces</a>
-                                            </nav>
-                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
-
-                    <h1><small>\com\xcitestudios\Network\Email\Interfaces</small>EmailSerializableInterface</h1>
-                    <p><em>Interface for an email that is serializable.</em></p>
-                    
-
-                    <section id="summary">
-                        <h2>Summary</h2>
-                        <section class="row-fluid heading">
-                            <section class="span6">
-                                <a href="#methods">Methods</a>
-                            </section>
-                            <section class="span6">
-                                <a href="#constants">Constants</a>
-                            </section>
-                        </section>
-                        <section class="row-fluid public">
-                            <section class="span6">
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_setCustomHeaders">setCustomHeaders()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_getCustomHeaders">getCustomHeaders()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_setFrom">setFrom()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_getFrom">getFrom()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_setSender">setSender()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_getSender">getSender()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_setReplyTo">setReplyTo()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_getReplyTo">getReplyTo()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_setTo">setTo()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_getTo">getTo()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_setCc">setCc()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_getCc">getCc()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_setBcc">setBcc()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_getBcc">getBcc()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_setDate">setDate()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_getDate">getDate()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_setSubject">setSubject()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_getSubject">getSubject()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_setInReplyTo">setInReplyTo()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_getInReplyTo">getInReplyTo()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_setBodyParts">setBodyParts()</a><br />
-                                                                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html#method_getBodyParts">getBodyParts()</a><br />
-                                                            </section>
-                            <section class="span6">
-                                                                    <em>No constants found</em>
-                                                            </section>
-                        </section>
-                        <section class="row-fluid protected">
-                            <section class="span6">
-                                                                    <em>No protected methods found</em>
-                                                            </section>
-                            <section class="span6">
-                                <em>N/A</em>
-                            </section>
-                        </section>
-                        <section class="row-fluid private">
-                            <section class="span6">
-                                                                    <em>No private methods found</em>
-                                                            </section>
-                            <section class="span6">
-                                <em>N/A</em>
-                            </section>
-                        </section>
-                    </section>
-                </div>
-                <aside class="span4 detailsbar">
-                                        <dl>
-                        <dt>File</dt>
-                            <dd>
-                                <a href="../files/Email.Interfaces.EmailSerializableInterface.html"><div class="path-wrapper">Email/Interfaces/EmailSerializableInterface.php</div></a>
-                            </dd>
-                                                <dt>Package</dt>
-                            <dd><div class="namespace-wrapper">\Default</div></dd>
-                                                                                                    <dt>Parents</dt>
-                                                        <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="namespace-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                                                <dd><a href=""><div class="namespace-wrapper"></div></a></dd>
+        <div class="span8">
+            <div class="element class">
+                <h1>EmailSerializableInterface</h1>
+                <small style="display: block; text-align: right">
+                                            Extends <a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</a>, \com\xcitestudios\Generic\Data\Manipulation\Interfaces\SerializationInterface
+                                                        </small>
+                <p class="short_description">Interface for an email that is serializable.</p>
+                <div class="details">
+                    <div class="long_description">
                         
-                                            </dl>
-                    <h2>Tags</h2>
-                    <table class="table table-condensed">
-                                            <tr><td colspan="2"><em>None found</em></td></tr>
-                                        </table>
-                </aside>
-            </div>
+                    </div>
+                    <table class="table table-bordered">
+                                                                                    <tr>
+                                    <th>
+                                        package
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>com.xcitestudios.Network</p>
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        subpackage
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>Email.Interfaces</p>
+                                    </td>
+                                </tr>
+                                                                        </table>
 
-            
-                        <div class="row-fluid">
-                <div class="span8 content class">
-                    <h2>Methods</h2>
-                </div>
-                <aside class="span4 detailsbar"></aside>
-            </div>
+                    <h3><i class="icon-custom icon-method"></i> Methods</h3>
+                                                                <a id="method_getBcc"></a>
+                        <div class="element clickable method public  method_getBcc inherited" data-toggle="collapse" data-target=".method_getBcc .collapse">
+                            <h2>Get the BCC recipients of the email.</h2>
+                            <pre>getBcc() : array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\ContactInterface&gt;|null</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
 
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_setCustomHeaders" name="method_setCustomHeaders" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">setCustomHeaders()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">setCustomHeaders(object|null  <span class="argument">$headers = null</span>) : void</pre>
-                <p><em>Set any non standard headers here - these should never overwrite the explicit headers.</em></p>
-                
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>object|null</td>
-                                <td>$headers </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
 
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_getCustomHeaders" name="method_getCustomHeaders" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">getCustomHeaders()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">getCustomHeaders() : object|null</pre>
-                <p><em>Get any non standard headers here - these should never overwrite the explicit headers.</em></p>
-                
-
-                
-                
-                                    <h4>Returns</h4>
-                    object|null
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_setFrom" name="method_setFrom" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">setFrom()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">setFrom(array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\ContactInterface&gt;  <span class="argument">$from</span>) : void</pre>
-                <p><em>Set who is the email from. Can be multiple people.</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>&gt;</td>
-                                <td>$from </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_getFrom" name="method_getFrom" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">getFrom()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">getFrom() : array</pre>
-                <p><em>Get who is the email from. Can be multiple people.</em></p>
-                
-
-                
-                
-                                    <h4>Returns</h4>
-                    array
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_setSender" name="method_setSender" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">setSender()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">setSender(\com\xcitestudios\Network\Email\Interfaces\ContactInterface|null  <span class="argument">$sender = null</span>) : void</pre>
-                <p><em>Sets the sender.</em></p>
-                <p>Optional OR Required. Optional where From is one person. Required where From is multiple people.</p>
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td><a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>|null</td>
-                                <td>$sender </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_getSender" name="method_getSender" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">getSender()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">getSender() : \com\xcitestudios\Network\Email\Interfaces\ContactInterface|null</pre>
-                <p><em>Gets the sender.</em></p>
-                <p>Optional OR Required. Optional where From is one person. Required where From is multiple people.</p>
-
-                
-                
-                                    <h4>Returns</h4>
-                    <a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>|null
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_setReplyTo" name="method_setReplyTo" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">setReplyTo()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">setReplyTo(array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\ContactInterface&gt;|null  <span class="argument">$replyTo = null</span>) : void</pre>
-                <p><em>Sets who a reply should go to when hitting reply in an email client.</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>&gt;|null</td>
-                                <td>$replyTo </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_getReplyTo" name="method_getReplyTo" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">getReplyTo()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">getReplyTo() : array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\ContactInterface&gt;|null</pre>
-                <p><em>Gets who a reply should go to when hitting reply in an email client.</em></p>
-                
-
-                
-                
-                                    <h4>Returns</h4>
-                    array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>&gt;|null
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_setTo" name="method_setTo" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">setTo()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">setTo(array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\ContactInterface&gt;|null  <span class="argument">$to</span>) : void</pre>
-                <p><em>Set the recipients of the email.</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>&gt;|null</td>
-                                <td>$to </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_getTo" name="method_getTo" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">getTo()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">getTo() : array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\ContactInterface&gt;|null</pre>
-                <p><em>Get the recipients of the email.</em></p>
-                
-
-                
-                
-                                    <h4>Returns</h4>
-                    array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>&gt;|null
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_setCc" name="method_setCc" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">setCc()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">setCc(array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\ContactInterface&gt;|null  <span class="argument">$cc = null</span>) : void</pre>
-                <p><em>Set the CC recipients of the email.</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>&gt;|null</td>
-                                <td>$cc </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_getCc" name="method_getCc" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">getCc()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">getCc() : array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\ContactInterface&gt;|null</pre>
-                <p><em>Get the CC recipients of the email.</em></p>
-                
-
-                
-                
-                                    <h4>Returns</h4>
-                    array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>&gt;|null
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_setBcc" name="method_setBcc" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">setBcc()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">setBcc(array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\ContactInterface&gt;|null  <span class="argument">$bcc = null</span>) : void</pre>
-                <p><em>Set the BCC recipients of the email.</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>&gt;|null</td>
-                                <td>$bcc </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_getBcc" name="method_getBcc" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">getBcc()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">getBcc() : array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\ContactInterface&gt;|null</pre>
-                <p><em>Get the BCC recipients of the email.</em></p>
-                
-
-                
-                
-                                    <h4>Returns</h4>
-                    array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>&gt;|null
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_setDate" name="method_setDate" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">setDate()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">setDate(\DateTime|null  <span class="argument">$date = null</span>) : void</pre>
-                <p><em>Set the time the email was &quot;sent&quot; (finished by a person/system). This is not
-necessarily the time the email entered a mail server.</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>\DateTime|null</td>
-                                <td>$date </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_getDate" name="method_getDate" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">getDate()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">getDate() : \DateTime|null</pre>
-                <p><em>Get the time the email was &quot;sent&quot; (finished by a person/system). This is not
-necessarily the time the email entered a mail server.</em></p>
-                
-
-                
-                
-                                    <h4>Returns</h4>
-                    \DateTime|null
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_setSubject" name="method_setSubject" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">setSubject()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">setSubject(string|null  <span class="argument">$subject = null</span>) : void</pre>
-                <p><em>Set the subject of the email.</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>string|null</td>
-                                <td>$subject </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_getSubject" name="method_getSubject" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">getSubject()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">getSubject() : mixed</pre>
-                <p><em>Get the subject of the email.</em></p>
-                
-
-                
-                
-                                    <h4>Returns</h4>
-                    mixed
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_setInReplyTo" name="method_setInReplyTo" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">setInReplyTo()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">setInReplyTo(string|null  <span class="argument">$inReplyTo = null</span>) : void</pre>
-                <p><em>Set which unique MessageID this is in reply to.</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>string|null</td>
-                                <td>$inReplyTo </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_getInReplyTo" name="method_getInReplyTo" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">getInReplyTo()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">getInReplyTo() : mixed</pre>
-                <p><em>Get which unique MessageID this is in reply to.</em></p>
-                
-
-                
-                
-                                    <h4>Returns</h4>
-                    mixed
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_setBodyParts" name="method_setBodyParts" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">setBodyParts()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">setBodyParts(array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\EmailBodyPartInterface&gt;  <span class="argument">$bodyParts</span>) : void</pre>
-                <p><em>Set the body of the email. For a single content-type email, just put one in this array.</em></p>
-                <p>It is presumed if you add multiple items to this array then it must be multipart.</p>
-<p>For multipart/alternative (multiple versions of the body such as text / html) add in
-one body part of type multipart/alternative which has multiple body parts.</p>
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailBodyPartInterface.html">\com\xcitestudios\Network\Email\Interfaces\EmailBodyPartInterface</a>&gt;</td>
-                                <td>$bodyParts </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_getBodyParts" name="method_getBodyParts" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">getBodyParts()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">getBodyParts() : array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\EmailBodyPartInterface&gt;</pre>
-                <p><em>Get the body of the email. For a single content-type email, just put one in this array.</em></p>
-                <p>It is presumed if you add multiple items to this array then it must be multipart.</p>
-<p>For multipart/alternative (multiple versions of the body such as text / html) add in
-one body part of type multipart/alternative which has multiple body parts.</p>
-
-                
-                
-                                    <h4>Returns</h4>
-                    array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailBodyPartInterface.html">\com\xcitestudios\Network\Email\Interfaces\EmailBodyPartInterface</a>&gt;
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailInterface.html"><div class="path-wrapper">\com\xcitestudios\Network\Email\Interfaces\EmailInterface</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>&gt;|null</code><p></p>
                                                                     </div>
-    </section>
+                            </div>
 
-    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="source-view-label">EmailSerializableInterface.php</h3>
-        </div>
-        <div class="modal-body">
-            <pre data-src="../files/Email/Interfaces/EmailSerializableInterface.php.txt" class="language-php"></pre>
+                        </div>
+                                            <a id="method_getBodyParts"></a>
+                        <div class="element clickable method public  method_getBodyParts inherited" data-toggle="collapse" data-target=".method_getBodyParts .collapse">
+                            <h2>Get the body of the email. For a single content-type email, just put one in this array.</h2>
+                            <pre>getBodyParts() : array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\EmailBodyPartInterface&gt;</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>It is presumed if you add multiple items to this array then it must be multipart.</p>
+<p>For multipart/alternative (multiple versions of the body such as text / html) add in
+one body part of type multipart/alternative which has multiple body parts.</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailBodyPartInterface.html">\com\xcitestudios\Network\Email\Interfaces\EmailBodyPartInterface</a>&gt;</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_getCc"></a>
+                        <div class="element clickable method public  method_getCc inherited" data-toggle="collapse" data-target=".method_getCc .collapse">
+                            <h2>Get the CC recipients of the email.</h2>
+                            <pre>getCc() : array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\ContactInterface&gt;|null</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>&gt;|null</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_getCustomHeaders"></a>
+                        <div class="element clickable method public  method_getCustomHeaders inherited" data-toggle="collapse" data-target=".method_getCustomHeaders .collapse">
+                            <h2>Get any non standard headers here - these should never overwrite the explicit headers.</h2>
+                            <pre>getCustomHeaders() : object|null</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>object|null</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_getDate"></a>
+                        <div class="element clickable method public  method_getDate inherited" data-toggle="collapse" data-target=".method_getDate .collapse">
+                            <h2>Get the time the email was &quot;sent&quot; (finished by a person/system). This is not
+necessarily the time the email entered a mail server.</h2>
+                            <pre>getDate() : \DateTime|null</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>\DateTime|null</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_getFrom"></a>
+                        <div class="element clickable method public  method_getFrom inherited" data-toggle="collapse" data-target=".method_getFrom .collapse">
+                            <h2>Get who is the email from. Can be multiple people.</h2>
+                            <pre>getFrom() : array</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_getInReplyTo"></a>
+                        <div class="element clickable method public  method_getInReplyTo inherited" data-toggle="collapse" data-target=".method_getInReplyTo .collapse">
+                            <h2>Get which unique MessageID this is in reply to.</h2>
+                            <pre>getInReplyTo() : mixed</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>mixed</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_getReplyTo"></a>
+                        <div class="element clickable method public  method_getReplyTo inherited" data-toggle="collapse" data-target=".method_getReplyTo .collapse">
+                            <h2>Gets who a reply should go to when hitting reply in an email client.</h2>
+                            <pre>getReplyTo() : array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\ContactInterface&gt;|null</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>&gt;|null</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_getSender"></a>
+                        <div class="element clickable method public  method_getSender inherited" data-toggle="collapse" data-target=".method_getSender .collapse">
+                            <h2>Gets the sender.</h2>
+                            <pre>getSender() : \com\xcitestudios\Network\Email\Interfaces\ContactInterface|null</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Optional OR Required. Optional where From is one person. Required where From is multiple people.</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code><a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>|null</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_getSubject"></a>
+                        <div class="element clickable method public  method_getSubject inherited" data-toggle="collapse" data-target=".method_getSubject .collapse">
+                            <h2>Get the subject of the email.</h2>
+                            <pre>getSubject() : mixed</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>mixed</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_getTo"></a>
+                        <div class="element clickable method public  method_getTo inherited" data-toggle="collapse" data-target=".method_getTo .collapse">
+                            <h2>Get the recipients of the email.</h2>
+                            <pre>getTo() : array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\ContactInterface&gt;|null</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>&gt;|null</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_setBcc"></a>
+                        <div class="element clickable method public  method_setBcc inherited" data-toggle="collapse" data-target=".method_setBcc .collapse">
+                            <h2>Set the BCC recipients of the email.</h2>
+                            <pre>setBcc(array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\ContactInterface&gt;|null $bcc = null) : void</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$bcc</h4>
+                                                <code>array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>&gt;|null</code><p></p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_setBodyParts"></a>
+                        <div class="element clickable method public  method_setBodyParts inherited" data-toggle="collapse" data-target=".method_setBodyParts .collapse">
+                            <h2>Set the body of the email. For a single content-type email, just put one in this array.</h2>
+                            <pre>setBodyParts(array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\EmailBodyPartInterface&gt; $bodyParts) : void</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>It is presumed if you add multiple items to this array then it must be multipart.</p>
+<p>For multipart/alternative (multiple versions of the body such as text / html) add in
+one body part of type multipart/alternative which has multiple body parts.</p></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$bodyParts</h4>
+                                                <code>array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailBodyPartInterface.html">\com\xcitestudios\Network\Email\Interfaces\EmailBodyPartInterface</a>&gt;</code><p></p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_setCc"></a>
+                        <div class="element clickable method public  method_setCc inherited" data-toggle="collapse" data-target=".method_setCc .collapse">
+                            <h2>Set the CC recipients of the email.</h2>
+                            <pre>setCc(array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\ContactInterface&gt;|null $cc = null) : void</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$cc</h4>
+                                                <code>array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>&gt;|null</code><p></p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_setCustomHeaders"></a>
+                        <div class="element clickable method public  method_setCustomHeaders inherited" data-toggle="collapse" data-target=".method_setCustomHeaders .collapse">
+                            <h2>Set any non standard headers here - these should never overwrite the explicit headers.</h2>
+                            <pre>setCustomHeaders(object|null $headers = null) : void</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$headers</h4>
+                                                <code>object|null</code><p></p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_setDate"></a>
+                        <div class="element clickable method public  method_setDate inherited" data-toggle="collapse" data-target=".method_setDate .collapse">
+                            <h2>Set the time the email was &quot;sent&quot; (finished by a person/system). This is not
+necessarily the time the email entered a mail server.</h2>
+                            <pre>setDate(\DateTime|null $date = null) : void</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$date</h4>
+                                                <code>\DateTime|null</code><p></p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_setFrom"></a>
+                        <div class="element clickable method public  method_setFrom inherited" data-toggle="collapse" data-target=".method_setFrom .collapse">
+                            <h2>Set who is the email from. Can be multiple people.</h2>
+                            <pre>setFrom(array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\ContactInterface&gt; $from) : void</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$from</h4>
+                                                <code>array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>&gt;</code><p></p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_setInReplyTo"></a>
+                        <div class="element clickable method public  method_setInReplyTo inherited" data-toggle="collapse" data-target=".method_setInReplyTo .collapse">
+                            <h2>Set which unique MessageID this is in reply to.</h2>
+                            <pre>setInReplyTo(string|null $inReplyTo = null) : void</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$inReplyTo</h4>
+                                                <code>string|null</code><p></p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_setReplyTo"></a>
+                        <div class="element clickable method public  method_setReplyTo inherited" data-toggle="collapse" data-target=".method_setReplyTo .collapse">
+                            <h2>Sets who a reply should go to when hitting reply in an email client.</h2>
+                            <pre>setReplyTo(array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\ContactInterface&gt;|null $replyTo = null) : void</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$replyTo</h4>
+                                                <code>array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>&gt;|null</code><p></p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_setSender"></a>
+                        <div class="element clickable method public  method_setSender inherited" data-toggle="collapse" data-target=".method_setSender .collapse">
+                            <h2>Sets the sender.</h2>
+                            <pre>setSender(\com\xcitestudios\Network\Email\Interfaces\ContactInterface|null $sender = null) : void</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Optional OR Required. Optional where From is one person. Required where From is multiple people.</p></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$sender</h4>
+                                                <code><a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>|null</code><p></p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_setSubject"></a>
+                        <div class="element clickable method public  method_setSubject inherited" data-toggle="collapse" data-target=".method_setSubject .collapse">
+                            <h2>Set the subject of the email.</h2>
+                            <pre>setSubject(string|null $subject = null) : void</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$subject</h4>
+                                                <code>string|null</code><p></p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_setTo"></a>
+                        <div class="element clickable method public  method_setTo inherited" data-toggle="collapse" data-target=".method_setTo .collapse">
+                            <h2>Set the recipients of the email.</h2>
+                            <pre>setTo(array&lt;mixed,\com\xcitestudios\Network\Email\Interfaces\ContactInterface&gt;|null $to) : void</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$to</h4>
+                                                <code>array&lt;mixed,<a href="../classes/com.xcitestudios.Network.Email.Interfaces.ContactInterface.html">\com\xcitestudios\Network\Email\Interfaces\ContactInterface</a>&gt;|null</code><p></p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+
+                        </div>
+                    
+                    
+                                                        </div>
+            </div>
+            <a id="\com\xcitestudios\Network\Email\Interfaces\EmailSerializableInterface"></a>
+            <ul class="breadcrumb">
+                <li><a href="../index.html"><i class="icon-custom icon-class"></i></a></li>
+                    
+    
+    <li><span class="divider">\</span><a href="../namespaces/com.xcitestudios.Network.Email.Interfaces.html">Interfaces</a></li>
+
+                <li class="active"><span class="divider">\</span><a href="../classes/com.xcitestudios.Network.Email.Interfaces.EmailSerializableInterface.html">EmailSerializableInterface</a></li>
+            </ul>
         </div>
     </div>
 
-    <footer class="row-fluid">
-        <section class="span10 offset2">
-            <section class="row-fluid">
-                <section class="span10 offset1">
-                    <section class="row-fluid footer-sections">
-                        <section class="span4">
-                                                        <h1><i class="icon-code"></i></h1>
-                            <div>
-                                <ul>
-                                                                            <li><a href="../namespaces/com.html">\com</a></li>
-                                                                    </ul>
-                            </div>
-                        </section>
-                        <section class="span4">
-                                                        <h1><i class="icon-bar-chart"></i></h1>
-                            <div>
-                                <ul>
-                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
-                                </ul>
-                            </div>
-                        </section>
-                        <section class="span4">
-                                                        <h1><i class="icon-pushpin"></i></h1>
-                            <div>
-                                <ul>
-                                    <li><a href="../reports/errors.html">Errors</a></li>
-                                    <li><a href="../reports/markers.html">Markers</a></li>
-                                </ul>
-                            </div>
-                        </section>
-                    </section>
-                </section>
-            </section>
-            <section class="row-fluid">
-                <section class="span10 offset1">
-                    <hr />
-                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on March 2nd, 2015 at 16:27.
-                </section>
-            </section>
-        </section>
-    </footer>
-</div>
+    </div>
 
-</body>
+        <footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
+            <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
+            generated on Tue, 03 Mar 2015 10:38:50 +0000.<br/>
+    </footer>
+    </body>
 </html>
