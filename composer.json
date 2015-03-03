@@ -11,8 +11,8 @@
         }
     ],
     "require": {
-        "xcitestudios/generic": "dev-master",
-        "xcitestudios/json-schemas": "dev-master",
+        "xcitestudios/generic": "1.*",
+        "xcitestudios/json-schemas": "1.*",
         "doctrine/collections": "1.*"
     },
     "require-dev": {
