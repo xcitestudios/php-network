@@ -13,7 +13,7 @@ use com\xcitestudios\Network\Server\Configuration\AMQPServerConfiguration;
 use RuntimeException;
 
 /**
- * A class implementing the Interfaces\UsernameAuthenticatedServerConfigurationSerializableInterface interface.
+ * A class to aid in the connection to AMQP servers.
  *
  * @package    com.xcitestudios.Network
  * @subpackage Server.Configuration
