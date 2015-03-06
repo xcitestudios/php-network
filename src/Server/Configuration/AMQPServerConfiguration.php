@@ -9,73 +9,64 @@
 
 namespace com\xcitestudios\Network\Server\Configuration;
 
-use stdClass;
-
 /**
  * A class implementing the Interfaces\UsernameAuthenticatedServerConfigurationSerializableInterface interface.
  *
  * @package com.xcitestudios.Network
  * @subpackage Server.Configuration
  */
-class UsernameAuthenticatedServerConfiguration extends ServerConfiguration
-    implements Interfaces\UsernameAuthenticatedServerConfigurationSerializableInterface
+class AMQPServerConfiguration extends UsernameAuthenticatedServerConfiguration
+    implements Interfaces\AMQPServerConfigurationSerializableInterface
 {
     /**
-     * @var string
+     * @var int
      */
-    protected $username;
+    protected $host = 'localhost';
 
     /**
      * @var string
      */
-    protected $password;
+    protected $username = 'guest';
 
     /**
-     * Set username for authentication.
+     * @var string
+     */
+    protected $password = 'guest';
+
+    /**
+     * @var int
+     */
+    protected $port = 5672;
+
+    /**
+     * @var string
+     */
+    protected $vhost = '/';
+
+    /**
+     * Set VHost to use on server.
      *
-     * @param string $username
+     * @param string $vhost Optional. Default /
+     *
      * @return static
      */
-    public function setUsername($username)
+    public function setVHost($vhost = '/')
     {
-        $this->username = $username;
+        $this->vhost = $vhost;
 
         return $this;
     }
 
     /**
-     * Get username for authentication.
+     * Get VHost to use on server.
      *
      * @return string
      */
-    public function getUsername()
+    public function getVHost()
     {
-        return $this->username;
+        return $this->vhost;
     }
 
-    /**
-     * Set password for authentication.
-     *
-     * @param string $password
-     * @return static
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password for authentication.
-     *
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-    
     /**
      * Updates the element implementing this interface using a JSON representation.
      *
@@ -84,16 +75,13 @@ class UsernameAuthenticatedServerConfiguration extends ServerConfiguration
      *
      * @param string $jsonString Representation of the object.
      *
-     * @return stdClass
+     * @return void
      */
     public function deserializeJSON($jsonString)
     {
         $data = parent::deserializeJSON($jsonString);
 
-        $this->username = property_exists($data, 'username') ? $data->username : null;
-        $this->password = property_exists($data, 'password') ? $data->password : null;
-
-        return $data;
+        $this->vhost = property_exists($data, 'vhost') ? $data->vhost : '/';
     }
 
     /**
@@ -107,9 +95,7 @@ class UsernameAuthenticatedServerConfiguration extends ServerConfiguration
     public function jsonSerialize()
     {
         $ret = parent::jsonSerialize();
-
-        $ret->username = $this->username;
-        $ret->password = $this->password;
+        $ret->vhost = $this->vhost;
 
         return $ret;
     }
