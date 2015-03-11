@@ -10,7 +10,7 @@ From the start the packages are available on packagist (composer).
 ```sh
 {
     "require": {
-	    "xcitestudios/network": "dev-master"
+	    "xcitestudios/network": "1.*"
 	}
 }
 ```
