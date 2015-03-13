@@ -9,8 +9,10 @@
 
 namespace com\xcitestudios\Network\Server\Configuration;
 
+use stdClass;
+
 /**
- * A class implementing the Interfaces\UsernameAuthenticatedServerConfigurationSerializableInterface interface.
+ * A class implementing the Interfaces\AMQPServerConfigurationSerializableInterface interface.
  *
  * @package com.xcitestudios.Network
  * @subpackage Server.Configuration
@@ -75,13 +77,15 @@ class AMQPServerConfiguration extends UsernameAuthenticatedServerConfiguration
      *
      * @param string $jsonString Representation of the object.
      *
-     * @return void
+     * @return stdClass
      */
     public function deserializeJSON($jsonString)
     {
         $data = parent::deserializeJSON($jsonString);
 
         $this->vhost = property_exists($data, 'vhost') ? $data->vhost : '/';
+
+        return $data;
     }
 
     /**

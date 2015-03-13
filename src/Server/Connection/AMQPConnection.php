@@ -34,7 +34,7 @@ class AMQPConnection
      * If you have PHP-AMQP (PECL) installed, you can get a connection using this method.
      *
      * @param AMQPServerConfiguration $config
-     * @return AMQPConnection
+     * @return \AMQPConnection
      * @throws RuntimeException connection failed or extension not available.
      */
     public static function createConnectionUsingPHPAMQP(AMQPServerConfiguration $config)
