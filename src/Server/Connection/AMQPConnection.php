@@ -10,6 +10,9 @@
 namespace com\xcitestudios\Network\Server\Connection;
 
 use com\xcitestudios\Network\Server\Configuration\AMQPServerConfiguration;
+use PhpAmqpLib\Connection\AbstractConnection;
+use PhpAmqpLib\Connection\AMQPSocketConnection;
+use PhpAmqpLib\Connection\AMQPSSLConnection;
 use RuntimeException;
 
 /**
@@ -37,7 +40,7 @@ class AMQPConnection
      * @return \AMQPConnection
      * @throws RuntimeException connection failed or extension not available.
      */
-    public static function createConnectionUsingPHPAMQP(AMQPServerConfiguration $config)
+    public static function createConnectionUsingPHPAMQPExtension(AMQPServerConfiguration $config)
     {
         if (!static::canUsePHPAMQPExtension()) {
             throw new RuntimeException('amqp extension is not installed - run pecl install amqp');
@@ -54,6 +57,62 @@ class AMQPConnection
         if (!$amqp->connect()) {
             throw new RuntimeException('Could not connect to AMQP server');
         }
+
+        return $amqp;
+    }
+
+    /**
+     * Create a connection using PHPAMQPLib.
+     *
+     * @param AMQPServerConfiguration $config
+     * @return AbstractConnection
+     */
+    public static function createConnectionUsingPHPAMQPLib(AMQPServerConfiguration $config, $sslCAPath = null, $sslHost = null)
+    {
+        if($config->getSSL() === true) {
+            $sslOptions = [
+                'verify_peer' => true,
+            ];
+
+            if ($sslCAPath !== null) {
+                $sslOptions['capath'] = $sslCAPath;
+            }
+
+            if ($sslHost !== null) {
+                $sslOptions['CN_match'] = $sslHost;
+            } elseif(!filter_var($config->getHost(), FILTER_VALIDATE_IP)) {
+                $sslOptions['CN_match'] = $config->getHost();
+            }
+
+            $amqp = new AMQPSSLConnection(
+                $config->getHost(),
+                $config->getPort(),
+                $config->getUsername(),
+                $config->getPassword(),
+                $config->getVHost(),
+                $sslOptions
+            );
+        } else {
+            $amqp = new AMQPSocketConnection(
+                $config->getHost(),
+                $config->getPort(),
+                $config->getUsername(),
+                $config->getPassword(),
+                $config->getVHost(),
+                false,
+                'AMQPLAIN',
+                null,
+                'en_US',
+                3,
+                true
+            );
+        }
+
+        register_shutdown_function(function() use ($amqp){
+            if ($amqp instanceof AbstractConnection && $amqp->isConnected()) {
+                $amqp->close();
+            }
+        });
 
         return $amqp;
     }
