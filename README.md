@@ -1,5 +1,7 @@
 # com.xcitestudios.Network
 
+[![Build Status](https://travis-ci.org/xcitestudios/php-network.svg?branch=master)](https://travis-ci.org/xcitestudios/php-network)
+
 Interfaces designed to unify and simplify cross language and distributed functions across multiple languages (PHP edition).
 
 
