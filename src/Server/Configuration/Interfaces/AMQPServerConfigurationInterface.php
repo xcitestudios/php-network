@@ -32,4 +32,19 @@ interface AMQPServerConfigurationInterface
      * @return string
      */
     public function getVHost();
+
+    /**
+     * Set the time out used for connections.
+     *
+     * @param int $connectionTimeout
+     * @return void
+     */
+    public function setConnectionTimeout($connectionTimeout = 3);
+
+    /**
+     * Get the time out used for connections.
+     *
+     * @return int
+     */
+    public function getConnectionTimeout();
 }

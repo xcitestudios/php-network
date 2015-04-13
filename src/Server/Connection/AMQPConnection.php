@@ -10,6 +10,7 @@
 namespace com\xcitestudios\Network\Server\Connection;
 
 use com\xcitestudios\Network\Server\Configuration\AMQPServerConfiguration;
+use com\xcitestudios\Network\Server\Configuration\Interfaces\AMQPServerConfigurationInterface;
 use PhpAmqpLib\Connection\AbstractConnection;
 use PhpAmqpLib\Connection\AMQPSocketConnection;
 use PhpAmqpLib\Connection\AMQPSSLConnection;
@@ -36,22 +37,23 @@ class AMQPConnection
     /**
      * If you have PHP-AMQP (PECL) installed, you can get a connection using this method.
      *
-     * @param AMQPServerConfiguration $config
+     * @param AMQPServerConfigurationInterface $config
      * @return \AMQPConnection
      * @throws RuntimeException connection failed or extension not available.
      */
-    public static function createConnectionUsingPHPAMQPExtension(AMQPServerConfiguration $config)
+    public static function createConnectionUsingPHPAMQPExtension(AMQPServerConfigurationInterface $config)
     {
         if (!static::canUsePHPAMQPExtension()) {
             throw new RuntimeException('amqp extension is not installed - run pecl install amqp');
         }
 
         $amqp = new \AMQPConnection([
-            'host'     => $config->getHost(),
-            'login'    => $config->getUsername(),
-            'password' => $config->getPassword(),
-            'vhost'    => $config->getVHost(),
-            'port'     => $config->getPort(),
+            'host'            => $config->getHost(),
+            'login'           => $config->getUsername(),
+            'password'        => $config->getPassword(),
+            'vhost'           => $config->getVHost(),
+            'port'            => $config->getPort(),
+            'connect_timeout' => $config->getConnectionTimeout()
         ]);
 
         if (!$amqp->connect()) {
@@ -67,7 +69,7 @@ class AMQPConnection
      * @param AMQPServerConfiguration $config
      * @return AbstractConnection
      */
-    public static function createConnectionUsingPHPAMQPLib(AMQPServerConfiguration $config, $sslCAPath = null, $sslHost = null)
+    public static function createConnectionUsingPHPAMQPLib(AMQPServerConfigurationInterface $config, $sslCAPath = null, $sslHost = null)
     {
         if($config->getSSL() === true) {
             $sslOptions = [
@@ -90,7 +92,10 @@ class AMQPConnection
                 $config->getUsername(),
                 $config->getPassword(),
                 $config->getVHost(),
-                $sslOptions
+                $sslOptions,
+                [
+                    'connection_timeout' => $config->getConnectionTimeout(),
+                ]
             );
         } else {
             $amqp = new AMQPSocketConnection(
@@ -103,7 +108,7 @@ class AMQPConnection
                 'AMQPLAIN',
                 null,
                 'en_US',
-                3,
+                $config->getConnectionTimeout(),
                 true
             );
         }

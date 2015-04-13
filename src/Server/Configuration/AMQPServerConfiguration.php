@@ -45,6 +45,11 @@ class AMQPServerConfiguration extends UsernameAuthenticatedServerConfiguration
      */
     protected $vhost = '/';
 
+    /*
+     * @var int
+     */
+    protected $connectionTimeout = 3;
+
     /**
      * Set VHost to use on server.
      *
@@ -102,5 +107,29 @@ class AMQPServerConfiguration extends UsernameAuthenticatedServerConfiguration
         $ret->vhost = $this->vhost;
 
         return $ret;
+    }
+
+    /**
+     * Get the time out used for connections.
+     *
+     * @return int
+     */
+    public function getConnectionTimeout()
+    {
+        return $this->connectionTimeout;
+    }
+
+    /**
+     * Set the time out used for connections.
+     *
+     * @param int $connectionTimeout
+     *
+     * @return static
+     */
+    public function setConnectionTimeout($connectionTimeout = 3)
+    {
+        $this->connectionTimeout = (int)$connectionTimeout;
+
+        return $this;
     }
 }
