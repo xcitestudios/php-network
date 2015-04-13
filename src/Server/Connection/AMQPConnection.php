@@ -15,6 +15,7 @@ use PhpAmqpLib\Connection\AbstractConnection;
 use PhpAmqpLib\Connection\AMQPSocketConnection;
 use PhpAmqpLib\Connection\AMQPSSLConnection;
 use RuntimeException;
+use Exception;
 
 /**
  * A class to aid in the connection to AMQP servers.
@@ -59,6 +60,14 @@ class AMQPConnection
         if (!$amqp->connect()) {
             throw new RuntimeException('Could not connect to AMQP server');
         }
+
+        register_shutdown_function(function() use ($amqp){
+            try {
+                $amqp->disconnect();
+            } catch(Exception $ex) {
+
+            }
+        });
 
         return $amqp;
     }
@@ -114,8 +123,11 @@ class AMQPConnection
         }
 
         register_shutdown_function(function() use ($amqp){
-            if ($amqp instanceof AbstractConnection && $amqp->isConnected()) {
-                $amqp->close();
+            if ($amqp->isConnected()) {
+                try {
+                    $amqp->close();
+                } catch (Exception $ex) {
+                }
             }
         });
 
