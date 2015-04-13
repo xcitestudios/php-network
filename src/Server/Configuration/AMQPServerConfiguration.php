@@ -88,7 +88,8 @@ class AMQPServerConfiguration extends UsernameAuthenticatedServerConfiguration
     {
         $data = parent::deserializeJSON($jsonString);
 
-        $this->vhost = property_exists($data, 'vhost') ? $data->vhost : '/';
+        $this->vhost             = property_exists($data, 'vhost') ? $data->vhost : '/';
+        $this->connectionTimeout = property_exists($data, 'connectionTimeout') ? (int)$data->connectionTimeout : 3;
 
         return $data;
     }
@@ -104,7 +105,9 @@ class AMQPServerConfiguration extends UsernameAuthenticatedServerConfiguration
     public function jsonSerialize()
     {
         $ret = parent::jsonSerialize();
-        $ret->vhost = $this->vhost;
+
+        $ret->vhost             = $this->vhost;
+        $ret->connectionTimeout = $this->connectionTimeout;
 
         return $ret;
     }
